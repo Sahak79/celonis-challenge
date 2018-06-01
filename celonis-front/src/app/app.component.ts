@@ -25,11 +25,11 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
-  get isAdminUser() {
+  isAdminUser() {
     return this.userService.isAdminUser();
   }
 
-  get isUser() {
+  isUser() {
     return this.userService.isUser();
   }
 }

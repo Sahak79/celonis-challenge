@@ -8,9 +8,10 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <p class="navbar-text" *ngIf="isAdminUser">You are admin!</p>
-      <p class="navbar-text" *ngIf="isUser">You are user!</p>
-      <button type="button" *ngIf="isUser || isAdminUser" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
+      <li>
+        <p class="navbar-text" *ngIf="isAdminUser()">You are admin!</p>
+        <p class="navbar-text" *ngIf="isUser()">You are user!</p>
+      </li>
       <li><button class="btn navbar-btn" (click)="logout()">Logout</button></li>
     </ul>
   </div>
