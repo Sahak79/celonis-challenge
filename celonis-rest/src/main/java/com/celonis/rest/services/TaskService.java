@@ -44,7 +44,6 @@ public class TaskService {
     }
 
     public ProjectGenerationTask createTask(ProjectGenerationTask projectGenerationTask) {
-        projectGenerationTask.setId(null);
         projectGenerationTask.setCreationDate(new Date());
         return projectGenerationTaskRepository.save(projectGenerationTask);
     }

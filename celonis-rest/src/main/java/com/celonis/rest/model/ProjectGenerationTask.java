@@ -3,7 +3,6 @@ package com.celonis.rest.model;
 import com.celonis.rest.model.lcp.TaskStatus;
 import com.celonis.rest.model.converter.TaskStatusConverter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.persistence.*;
 import java.util.Date;
