@@ -1,0 +1,12 @@
+<table class="table  table-hover">
+  <tr *ngFor="let type of types" >
+    <td class='clickable clickable_disabled' *ngIf="type.id==1">
+      <b>{{type.description}}</b>
+      <p>{{type.name}}</p>
+    </td>
+    <td class='clickable' (click)="makeTask(type.id)" *ngIf="type.id!=1">
+      <b>{{type.description}}</b>
+      <p>{{type.name}}</p>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,28 @@
+<div class="text-right">
+  <button class="btn btn-default btn-circle btn-lg" (click)="openMakeTask()">+</button>
+</div>
+<br>
+<table class="table  table-hover">
+  <tr *ngFor="let task of tasks" >
+    <td class='clickable' (click)="openTask(task.id)" >
+      <!--p>{{task.id}}</p-->
+      <b>{{task.taskType.description}}</b>
+      <p>{{task.taskType.name}}</p>
+      <b class="text-primary">{{task.status.name}}</b>
+    </td>
+    <td *ngIf="task.status.id == 3" class="text-right">
+      <!--a class="btn btn-info" href="javascript:void(0)" >
+        Cancel
+      </a-->
+    </td>
+    <td *ngIf="task.status.id != 3" class="text-right">
+      <a class="btn btn-danger" href="javascript:void(0)" (click)="deleteTask(task)">
+        Delete
+      </a>
+    </td>
+  </tr>
+</table>
+
+
+
+

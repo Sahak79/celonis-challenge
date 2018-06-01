@@ -1,0 +1,6 @@
+td.clickable {
+  cursor: pointer;
+}
+td.clickable_disabled {
+  cursor: not-allowed;
+}

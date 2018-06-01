@@ -1,0 +1,52 @@
+<!-- (1/4) -->
+<div class="form-wrapper" *ngIf="!!task.status && task.status.id==1">
+  <h2>Please input the configuration for 'Count from X to Y' task.</h2>
+  <form name="form" (ngSubmit)="f.form.valid && setFromToValues()" #f="ngForm" novalidate>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fromValue.valid }">
+      <input type="text" (keyup)="isFromValid=!fromValidation()"  pattern="^[0-9]+$" class="form-control" name="fromValue" [(ngModel)]="model.fromValue" #fromValue="ngModel"
+             required placeholder="From value"/>
+      <div *ngIf="f.submitted && !fromValue.valid" class="help-block">From value is required</div>
+      <div #isFromValid *ngIf="isFromValid" class="help-block">Only number accepted</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !toValue.valid }">
+      <input type="text" (keyup)="isToValid=!toValidation()" pattern="^[0-9]+$" class="form-control" name="toValue" [(ngModel)]="model.toValue" #toValue="ngModel"
+             required placeholder="To value"/>
+      <div *ngIf="f.submitted && !toValue.valid" class="help-block">To value is required</div>
+      <div #isToValid *ngIf="isToValid" class="help-block">Only number accepted</div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-info">next</button>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
+</div>
+
+<!-- (2/4) -->
+<div *ngIf="!!task.status && task.status.id==2">
+  <h2>Do you want to execute the task now?</h2>
+  <div>
+    <a class="btn btn-info" href="javascript:void(0)" (click)="setExecutingStatus()" >Yes</a>
+  </div>
+</div>
+
+<!-- (3/4) -->
+<div *ngIf="!!task.status && task.status.id==3">
+  <h2>Executing now...</h2>
+  <h2>We are currently at number {{task.currentValue+"/"+task.toValue}}</h2>
+  <img alt="loading" src="assets/loading_spin.gif">
+  <div>
+    <a class="btn btn-info" href="javascript:void(0)" (click)="cancelExecution()">Cancel execution</a>
+  </div>
+</div>
+
+<!-- (4/4) -->
+<div *ngIf="!!task.status && task.status.id==4">
+  <h2>Task finished execution successfully.</h2>
+  <h2>Counted from {{task.fromValue+" to "+task.toValue}}.</h2>
+</div>
+
+
+
+
+
+
